@@ -20,6 +20,7 @@ def open_file():
         set_file_path(path)
 
 def save_as():
+    '''it will ask us to choose the file location and file extention similar to when we save a file in notepad'''
     if file_path == '':
         path = asksaveasfilename(filetypes=[('Python Files', '*.py')])
     else:
@@ -30,8 +31,8 @@ def save_as():
         set_file_path(path)
 
 
-
 def execute():
+    '''This function checks the file path and if the file path is black then it will execute the Toplevel() then it will prompt to save the file'''
     if file_path == '':
         save_prompt = Toplevel()
         text = Label(save_prompt, text='Please save your code, before executing it')
@@ -55,8 +56,8 @@ menu_bar.add_cascade(label='File', menu=file_menu)
 
 
 run_bar = Menu(menu_bar, tearoff=0)
-run_bar.add_command(label='Execute', command=execute)
-menu_bar.add_cascade(label='Execute', menu=run_bar)
+run_bar.add_command(label='Execute', command=execute) #It will run the execute function.
+menu_bar.add_cascade(label='Execute', menu=run_bar) 
 
 
 
@@ -71,4 +72,4 @@ code_output = Text(height=8)
 code_output.pack()
 
 
-proton.mainloop()
+proton.mainloop() #The window will remain open because of the mainloop till we manually exit the program.
